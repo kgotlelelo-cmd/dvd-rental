@@ -25,7 +25,6 @@ resource "aws_subnet" "subnet2" {
 resource "aws_security_group" "rds_sg" {
   vpc_id = aws_vpc.main.id
 
-  // Allow inbound PostgreSQL traffic from anywhere
   ingress {
     from_port   = 5432
     to_port     = 5432
@@ -33,7 +32,6 @@ resource "aws_security_group" "rds_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  // Allow all outbound traffic
   egress {
     from_port   = 0
     to_port     = 0
